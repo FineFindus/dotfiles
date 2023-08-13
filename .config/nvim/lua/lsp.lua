@@ -58,5 +58,13 @@ require("mason-lspconfig").setup_handlers {
               },
           },
       })
+  end,
+
+  ["rust_analyzer"] = function ()
+      require("rust-tools").setup {
+          tools = require("languages.rust").config,
+          server = { on_attach = on_attach },
+          capabilities = capabilities,
+      }
   end
 }

@@ -152,7 +152,7 @@ local plugins = {
     end,
   },
 
-  require("languages.rust"),
+  require("languages.rust").plugins,
 }
 
 -- load plugins
