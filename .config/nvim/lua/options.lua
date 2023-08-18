@@ -26,14 +26,8 @@ vim.opt.hlsearch = false            -- do not highlight matches
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
 
---disable netrw
+-- Disabling
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
-vim.diagnostic.config({
-    float = {
-        border = 'rounded',
-    },
-})
-
+vim.g.swapfile = false
 
