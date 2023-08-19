@@ -149,6 +149,9 @@ export HISTFILE="${XDG_STATE_HOME}"/bash/history
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION" #move .zcompdump
 export HISTFILE="$XDG_STATE_HOME"/zsh/history                             
 
+# npm config files
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+
 
 
 #android studio/flutter development
