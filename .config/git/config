@@ -29,4 +29,11 @@
 # checkout gitlab merge requests
 [alias]
     mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
-
+    rebase-origin = "!f() { \
+        git remote rename origin upstream; \
+        ORIGIN_URL=$(git remote get-url upstream); \
+        BASE_URL=$(echo $ORIGIN_URL | rev | cut -d'/' -f3- | rev); \
+        FILENAME_BASE=$(basename \"$PWD\"); \
+        USER_NAME=$(git config user.name); \
+        git remote add origin \"$BASE_URL/$USER_NAME/$FILENAME_BASE.git\"; \
+    }; f"
