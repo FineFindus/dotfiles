@@ -173,6 +173,9 @@ export GPG_TTY=$(tty)
 #nice time format for zsh's inbuilt time command
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
 
+# set editor for git, etc
+export VISUAL=nvim
+
 # firefox blackscreen fix
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1
