@@ -21,8 +21,15 @@
 [push]
 	autoSetupRemote = true
 
-# checkout gitlab merge requests
+# prefer ssh over https
+[url "ssh://git@gitlab.com/"]
+  insteadOf = https://gitlab.com/
+[url "ssh://git@gitlab.gnome.org/"]
+  insteadOf = https://gitlab.gnome.org/
+
+
 [alias]
+    # checkout gitlab merge requests
     mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
     rebase-origin = "!f() { \
         git remote rename origin upstream; \
