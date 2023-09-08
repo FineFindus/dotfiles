@@ -188,7 +188,7 @@ alias bat='bat --theme="Nord"'
 #rm alias
 alias rm="rm -i"
 #nice exa/ls alias
-alias exa="exa -lha --icons"
+alias exa="eza -lha --icons"
 
 # dotfile repository
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
