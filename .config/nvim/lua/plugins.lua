@@ -24,7 +24,6 @@ local plugins = {
       return require "config.lualine"
     end,
   },
-  -- -- TODO: doesn't work
   -- Editing
   {
     "lukas-reineke/indent-blankline.nvim",

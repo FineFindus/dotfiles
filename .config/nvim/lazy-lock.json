@@ -25,5 +25,6 @@
   "rust-tools.nvim": { "branch": "master", "commit": "0cc8adab23117783a0292a0c8a2fbed1005dc645" },
   "rust.vim": { "branch": "master", "commit": "889b9a7515db477f4cb6808bef1769e53493c578" },
   "telescope.nvim": { "branch": "master", "commit": "2d92125620417fbea82ec30303823e3cd69e90e8" },
-  "ultimate-autopair.nvim": { "branch": "main", "commit": "6767b5085cffbe888239d5495c8b1fb17bc2e4fa" }
+  "ultimate-autopair.nvim": { "branch": "main", "commit": "6767b5085cffbe888239d5495c8b1fb17bc2e4fa" },
+  "vim-visual-multi": { "branch": "master", "commit": "724bd53adfbaf32e129b001658b45d4c5c29ca1a" }
 }
