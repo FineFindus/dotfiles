@@ -90,6 +90,19 @@ local plugins = {
       return require("config.others").gitsigns
     end,
   },
+
+  -- debugging
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "jay-babu/mason-nvim-dap.nvim",
+    },
+    config = function()
+      require("config/debugging").setup()
+    end,
+  },
+
   -- lsp 
   -- {
   --   "nvim-treesitter/nvim-treesitter",

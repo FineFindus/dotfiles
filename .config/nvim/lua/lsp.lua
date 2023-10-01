@@ -10,7 +10,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
 -- rounded border on hover
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
+    border = "rounded",
 })
 
 -- Use an on_attach function to only map the following keys
@@ -38,39 +38,37 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require("mason-lspconfig").setup_handlers {
-  function (server_name)
-    require("lspconfig")[server_name].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-    }
-  end,
+    function(server_name)
+        require("lspconfig")[server_name].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+        }
+    end,
 
-  -- add vim global for editing nvim config files
-  ["lua_ls"] = function()
-      require("lspconfig").lua_ls.setup({
-          on_attach = on_attach,
-          capabilities = capabilities,
-          settings = {
-              Lua = {
-                  diagnostics = {
-                      -- Get the language server to recognize the `vim` global
-                      globals = { "vim" },
-                  },
-              },
-          },
-      })
-  end,
+    -- add vim global for editing nvim config files
+    ["lua_ls"] = function()
+        require("lspconfig").lua_ls.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        -- Get the language server to recognize the `vim` global
+                        globals = { "vim" },
+                    },
+                },
+            },
+        })
+    end,
 
-  ["rust_analyzer"] = function ()
-      require("rust-tools").setup {
-          tools = require("languages.rust").config,
-          server = { on_attach = on_attach },
-          capabilities = capabilities,
-      }
-  end
+    ["rust_analyzer"] = function()
+        require("rust-tools").setup {
+            tools = require("languages.rust").config,
+            server = { on_attach = on_attach },
+            capabilities = capabilities,
+        }
+    end
 }
-
