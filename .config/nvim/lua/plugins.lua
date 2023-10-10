@@ -14,56 +14,63 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   -- UI/Theming
+  -- themes
   { "arcticicestudio/nord-vim" },
+  -- Lua with Lazy.nvim:
+  {
+      "Mofiqul/adwaita.nvim",
+      lazy = false,
+      priority = 1000,
+  },
   { "nvim-tree/nvim-web-devicons" },
   {
-    "nvim-lualine/lualine.nvim",
-    event = "VimEnter",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    opts = function()
-      return require "config.lualine"
-    end,
+      "nvim-lualine/lualine.nvim",
+      event = "VimEnter",
+      dependencies = "nvim-tree/nvim-web-devicons",
+      opts = function()
+          return require "config.lualine"
+      end,
   },
   -- Editing
   {
-    "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    main = "ibl",
-    opts = function()
-      require("ibl").setup(
-      {
-          indent = { char = "▏" },
-          scope = { show_start = false, show_end = false },
-      }
-      )
-    end,
+      "lukas-reineke/indent-blankline.nvim",
+      event = { "BufReadPre", "BufNewFile" },
+      main = "ibl",
+      opts = function()
+          require("ibl").setup(
+          {
+              indent = { char = "▏" },
+              scope = { show_start = false, show_end = false },
+          }
+          )
+      end,
   },
   { "numToStr/Comment.nvim" },
   {
-    "altermo/ultimate-autopair.nvim",
-    event = { "InsertEnter", "CmdlineEnter" },
-    opts = function()
-      return require("config.others").autopair
-    end,
+      "altermo/ultimate-autopair.nvim",
+      event = { "InsertEnter", "CmdlineEnter" },
+      opts = function()
+          return require("config.others").autopair
+      end,
   },
   -- file management
   {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    opts = function()
-      return require "config.nvimtree"
-    end,
+      "nvim-tree/nvim-tree.lua",
+      cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+      opts = function()
+          return require "config.nvimtree"
+      end,
   },
   {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-lua/plenary.nvim",
-    },
-    cmd = "Telescope",
-    opts = function()
-      return require "config.telescope"
-    end,
+      "nvim-telescope/telescope.nvim",
+      dependencies = {
+          "nvim-treesitter/nvim-treesitter",
+          "nvim-lua/plenary.nvim",
+      },
+      cmd = "Telescope",
+      opts = function()
+          return require "config.telescope"
+      end,
   },
 
   -- git
