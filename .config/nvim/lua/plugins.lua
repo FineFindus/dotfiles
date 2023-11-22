@@ -19,7 +19,7 @@ local plugins = {
     -- Lua with Lazy.nvim:
     {
         "Mofiqul/adwaita.nvim",
-        enabled = false,
+        enabled = require("device").isLaptop,
     },
     { "nvim-tree/nvim-web-devicons" },
     {
