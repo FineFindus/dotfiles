@@ -179,6 +179,7 @@ local plugins = {
 
     require("languages.rust").plugins,
     require("languages.c").plugins,
+    require("languages.haskell").plugins,
 }
 
 -- load plugins
