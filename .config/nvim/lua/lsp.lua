@@ -36,6 +36,17 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', require("telescope.builtin").lsp_references, bufopts)
     vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+
+
+    -- highlight on cursorhold
+    vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+      buffer = bufnr,
+      callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd({"CursorMoved"}, {
+      buffer = bufnr,
+      callback = vim.lsp.buf.clear_references,
+    })
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())

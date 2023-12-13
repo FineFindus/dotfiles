@@ -19,6 +19,7 @@ vim.opt.splitbelow = true           -- open new vertical split bottom
 vim.opt.splitright = true           -- open new horizontal splits right
 vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 vim.opt.showmode = false            -- Hide mode indicator, lualine shows them already
+vim.opt.updatetime = 500            -- Update faster on cursorhold
 
 -- Searching
 vim.opt.incsearch = true            -- search as characters are entered
