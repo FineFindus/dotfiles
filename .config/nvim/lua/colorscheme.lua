@@ -11,7 +11,6 @@ if not is_ok then
     return
 end
 
-
 -- Set colorschme for cmp (auto-completion)
 -- gray
 vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { bg='NONE', strikethrough=true, fg='#d8dee9' })

@@ -36,6 +36,15 @@ local plugins = {
             return require "config.lualine"
         end,
     },
+    -- keymaps
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+    },
     -- Editing
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -186,6 +195,7 @@ local plugins = {
     require("languages.rust").plugins,
     require("languages.c").plugins,
     require("languages.haskell").plugins,
+    require("languages.lua").plugins,
 }
 
 -- load plugins
