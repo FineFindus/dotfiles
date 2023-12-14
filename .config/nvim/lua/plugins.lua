@@ -15,10 +15,16 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
     -- UI/Theming
     -- themes
-    { "arcticicestudio/nord-vim" },
-    -- Lua with Lazy.nvim:
+    {
+        "arcticicestudio/nord-vim",
+        enabled = require("device").isDesktop
+    },
     {
         "Mofiqul/adwaita.nvim",
+        enabled = false, --require("device").isLaptop,
+    },
+    {
+        "projekt0n/github-nvim-theme",
         enabled = require("device").isLaptop,
     },
     { "nvim-tree/nvim-web-devicons" },

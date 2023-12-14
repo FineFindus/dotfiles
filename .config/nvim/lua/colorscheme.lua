@@ -1,7 +1,7 @@
 local colorscheme = 'nord'
 
-if require("device").isLaptop then
-    colorscheme = 'adwaita'
+if require('device').isLaptop then
+    colorscheme = 'github_light'
 end
 
 -- load colorscheme
