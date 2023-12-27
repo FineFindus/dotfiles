@@ -76,6 +76,22 @@ local plugins = {
         end,
     },
     {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        event = { "BufReadPre", "BufNewFile" },
+        opts = {
+            ensure_installed = {
+                "blueprint"
+            },
+            highlight = {
+                enable = true,
+            },
+        },
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
+        end,
+    },
+    {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
@@ -130,14 +146,6 @@ local plugins = {
     },
 
     -- lsp
-    -- {
-    --   "nvim-treesitter/nvim-treesitter",
-    --   build = ":TSUpdate",
-    --   event = { "BufReadPre", "BufNewFile" },
-    --   opts = function()
-    --     return require "config.treesitter"
-    --   end,
-    -- },
     {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
