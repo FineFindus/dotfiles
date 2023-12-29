@@ -17,7 +17,7 @@ local plugins = {
     -- themes
     {
         "arcticicestudio/nord-vim",
-        enabled = require("device").isDesktop
+        enabled = require("device").isDesktop,
     },
     {
         "Mofiqul/adwaita.nvim",
