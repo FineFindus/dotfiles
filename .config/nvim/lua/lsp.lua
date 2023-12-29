@@ -39,13 +39,19 @@ local on_attach = function(client, bufnr)
 
 
     -- highlight on cursorhold
-    vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
-      buffer = bufnr,
-      callback = vim.lsp.buf.document_highlight,
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+        buffer = bufnr,
+        callback = vim.lsp.buf.document_highlight,
     })
-    vim.api.nvim_create_autocmd({"CursorMoved"}, {
-      buffer = bufnr,
-      callback = vim.lsp.buf.clear_references,
+    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+        buffer = bufnr,
+        callback = vim.lsp.buf.clear_references,
+    })
+
+    -- foramt on save
+    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+        buffer = bufnr,
+        callback = function() vim.lsp.buf.format { async = true } end,
     })
 end
 
