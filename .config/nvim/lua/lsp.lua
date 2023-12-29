@@ -59,12 +59,12 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 
 -- manually setup blueprint lsp
 -- remove once https://github.com/mason-org/mason-registry/pull/2807 is merged
-require("lspconfig").blueprint_ls.setup({})
+lspconfig.blueprint_ls.setup({})
 
 -- setup all lsp server installed through mason
 require("mason-lspconfig").setup_handlers {
     function(server_name)
-        require("lspconfig")[server_name].setup {
+        lspconfig[server_name].setup {
             on_attach = on_attach,
             capabilities = capabilities,
         }
@@ -73,7 +73,7 @@ require("mason-lspconfig").setup_handlers {
     -- add vim global for editing nvim config files
     ["lua_ls"] = function()
         require("neodev").setup({})
-        require("lspconfig").lua_ls.setup({
+        lspconfig.lua_ls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
             settings = {
