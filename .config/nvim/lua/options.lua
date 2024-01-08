@@ -30,5 +30,5 @@ vim.opt.smartcase = true            -- but make it case sensitive if an uppercas
 -- Disabling
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g.swapfile = false
+vim.opt.swapfile = false
 
