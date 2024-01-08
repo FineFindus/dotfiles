@@ -105,8 +105,10 @@ local plugins = {
     -- save session when closing
     {
         "folke/persistence.nvim",
-        enabled = false,
-        event = "BufReadPre", -- this will only start session saving when an actual file was opened
+        event = "BufReadPre",
+        opts = {
+            dir = vim.fn.expand(vim.fn.stdpath("state") .. "/sessions/"),
+        }
     },
     -- git
     {
